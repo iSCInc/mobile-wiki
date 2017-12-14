@@ -92,6 +92,26 @@ export default Component.extend(
 		init() {
 			this._super(...arguments);
 
+			if (this.get('isFastBoot')) {
+				const cheerio = FastBoot.require('cheerio');
+				const $ = cheerio.load(this.get('content'));
+				$('h2,h3').each(function () {
+					const header = $(this);
+					// console.log('aaaa' + header.html())
+					let el = header.next();
+					// console.log('x' + el.html());
+					const div = $('<div>');
+					div.addClass('hidden-section');
+					while (el[0] && (el[0].tagName !== 'h2' && el[0].tagName !== 'h3')) {
+						const next = el.next();
+						el.appendTo(div);
+						el = next;
+					}
+					header.after(div);
+				});
+				this.set('content', $('body').html());
+			}
+
 			this.renderComponent = getRenderComponentFor(this);
 			this.renderedComponents = [];
 		},

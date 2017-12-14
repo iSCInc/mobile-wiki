@@ -32,6 +32,7 @@
     "ad-products": "^2.1.4",
     "body-parser": "1.18.2",
     "bunyan-prettystream": "0.1.3",
+    "cheerio": "1.0.0-rc.2",
     "compression": "1.7.1",
     "cors": "2.8.4",
     "deep-extend": "0.5.0",
@@ -132,7 +133,8 @@
     "process",
     "url",
     "util",
-    "proxying-agent"
+    "proxying-agent",
+    "cheerio"
   ],
   "snyk": true
 }
