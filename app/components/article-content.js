@@ -95,11 +95,9 @@ export default Component.extend(
 			if (this.get('isFastBoot')) {
 				const cheerio = FastBoot.require('cheerio');
 				const $ = cheerio.load(this.get('content'));
-				$('h2,h3').each(function () {
+				$('body > h2, body > h3').each(function () {
 					const header = $(this);
-					// console.log('aaaa' + header.html())
 					let el = header.next();
-					// console.log('x' + el.html());
 					const div = $('<div>');
 					div.addClass('hidden-section');
 					while (el[0] && (el[0].tagName !== 'h2' && el[0].tagName !== 'h3')) {
