@@ -107,6 +107,7 @@ export default Component.extend(
 					}
 					header.after(div);
 				});
+				$('.hidden-section [data-component]').removeAttr('data-component');
 				this.set('content', $('body').html());
 			}
 
