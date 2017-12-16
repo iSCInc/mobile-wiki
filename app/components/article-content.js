@@ -76,6 +76,26 @@ export default Component.extend(
 
 					this.handleWikiaWidgetWrappers();
 					this.handleJumpLink();
+
+					const self = this;
+					this.$().children('h2, h3').each(function () {
+						const header = $(this);
+						header.click(function () {
+							const div = $(this).next('.hidden-section');
+							if (div.length) {
+								div.show();
+
+								self.renderedComponents = self.renderedComponents.concat(
+									queryPlaceholders(div, '[data-lazy-component]')
+									.map(getAttributesForMedia, {
+										media: self.get('media'),
+										openLightbox: self.get('openLightbox')
+									})
+									.map(self.renderComponent)
+								);
+							}
+						});
+					});
 				} else if (this.get('displayEmptyArticleInfo')) {
 					this.hackIntoEmberRendering(`<p>${this.get('i18n').t('article.empty-label')}</p>`);
 				}
@@ -107,7 +127,12 @@ export default Component.extend(
 					}
 					header.after(div);
 				});
-				$('.hidden-section [data-component]').removeAttr('data-component');
+				$('.hidden-section [data-component]').each(function () {
+					const $this = $(this),
+						componentAttribute = $this.attr('data-component');
+					$this.removeAttr('data-component');
+					$this.attr('data-lazy-component', componentAttribute);
+				});
 				this.set('content', $('body').html());
 			}
 
