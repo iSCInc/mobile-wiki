@@ -107,6 +107,10 @@ export function buildUrl(urlParams = {}) {
 		}
 	}
 
+	if (urlParams.langPath) {
+		url += '/' + urlParams.langPath;
+	}
+
 	if (urlParams.title) {
 		url += urlParams.articlePath +
 			(urlParams.namespace ? `${urlParams.namespace}:` : '') +

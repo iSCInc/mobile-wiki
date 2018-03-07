@@ -16,12 +16,24 @@ Router.map(function () {
 		path: '/wiki/'
 	});
 
+	this.route('main-page-redirect', {
+		path: '/:lang_path/wiki/'
+	});
+
 	this.route('wiki-page', {
 		path: '/wiki/*title'
 	});
 
+	this.route('wiki-page', {
+		path: '/:lang_path/wiki/*title'
+	});
+
 	this.route('article-edit', {
 		path: '/wiki/edit/:title/:section_index'
+	});
+
+	this.route('article-edit', {
+		path: '/:lang_path/wiki/edit/:title/:section_index'
 	});
 });
 

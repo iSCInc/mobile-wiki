@@ -80,6 +80,7 @@ export default Route.extend(
 			const host = wikiVariables.get('host');
 			const modelParams = {
 				host,
+				langPath: params.lang_path,
 				title: params.title,
 				wiki: wikiVariables.get('dbName')
 			};

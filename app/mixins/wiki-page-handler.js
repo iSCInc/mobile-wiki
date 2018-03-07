@@ -48,6 +48,7 @@ function getURL(params) {
 
 	return buildUrl({
 		host: params.host,
+		langPath: params.langPath,
 		path: '/wikia.php',
 		query
 	});
