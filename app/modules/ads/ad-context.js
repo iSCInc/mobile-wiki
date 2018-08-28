@@ -1,7 +1,7 @@
 export default {
   adUnitId: '/{custom.dfpId}/wka.{targeting.s0}/{custom.wikiIdentifier}//{targeting.s2}/{src}/{slotConfig.slotName}',
   megaAdUnitId: '/{custom.dfpId}/wka1a.{slotConfig.group}/{slotConfig.adProduct}{slotConfig.slotNameSuffix}/'
-		+ '{state.deviceType}/{targeting.skin}-{targeting.s2}/{custom.wikiIdentifier}-{targeting.s0}',
+    + '{state.deviceType}/{targeting.skin}-{targeting.s2}/{custom.wikiIdentifier}-{targeting.s0}',
   bidders: {
     enabled: false,
     timeout: 2000,
@@ -92,7 +92,7 @@ export default {
         enabled: false,
         debugPlacementId: '5768085',
         slots: {
-          mobile_in_content: {
+          incontent_player: {
             placementId: '11543173',
           },
         },
@@ -280,7 +280,7 @@ export default {
             zoneId: '699374',
             position: 'btf',
           },
-          mobile_in_content: {
+          incontent_player: {
             siteId: '55412',
             sizeId: '203',
             zoneId: '563110',
@@ -343,7 +343,7 @@ export default {
         enabled: false,
         slots: {
           featured: {},
-          mobile_in_content: {},
+          incontent_player: {},
         },
       },
     },
@@ -351,6 +351,8 @@ export default {
   custom: {
     dfpId: '5441',
     wikiIdentifier: '_not_a_top1k_wiki',
+    appnexusDfp: true,
+    rubiconDfp: true,
   },
   events: {
     pushOnScroll: {
@@ -371,7 +373,7 @@ export default {
   vast: {
     adUnitId: '/{custom.dfpId}/wka.{targeting.s0}/{custom.wikiIdentifier}//{targeting.s2}/{src}/{slotConfig.slotName}',
     megaAdUnitId: '/{custom.dfpId}/wka1a.{slotConfig.group}/{slotConfig.adProduct}{slotConfig.slotNameSuffix}/'
-			+ '{state.deviceType}/{targeting.skin}-{targeting.s2}/{custom.wikiIdentifier}-{targeting.s0}',
+      + '{state.deviceType}/{targeting.skin}-{targeting.s2}/{custom.wikiIdentifier}-{targeting.s0}',
   },
   targeting: {
     outstream: 'none',
